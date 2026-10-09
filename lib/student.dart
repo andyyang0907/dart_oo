@@ -5,7 +5,9 @@ class Student {
     final String id;
     double _score;
 
-    Student(this.name, this.id, this._score);
+    Student(this.name, this.id, this._score) {
+        if (_score < 0 || _score > 100) throw ArgumentError("分数越界");
+    }
 
     Student.fromJson(Map<String, dynamic> json)
         : name = json['name'],
